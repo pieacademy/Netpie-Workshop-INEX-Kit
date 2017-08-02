@@ -8,9 +8,9 @@
 const char* ssid     = "YOUR_WIFI_SSID";          // ชื่อ ssid
 const char* password = "YOUR_WIFI_PASSWORD";      // รหัสผ่าน wifi
 
-#define APPID   "nstdaworkshop"
-#define KEY     "Y386GFExIsbeRol"
-#define SECRET  "XOaKPHNY3imoev4b3FTH5SyMU"
+#define APPID   "GROUP_APPID"
+#define KEY     "GROUP_KEY"
+#define SECRET  "GROUP_SECRET"
 #define ALIAS   "YOUR_UNIQUE_ALIAS"               // แทนที่ด้วยหมายเลขของท่าน เช่น "A01"
 // --------------------------------------------------------------------------------------
 

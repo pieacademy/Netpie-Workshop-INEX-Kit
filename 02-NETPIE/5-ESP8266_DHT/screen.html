@@ -1,8 +1,8 @@
 <script src="https://cdn.netpie.io/microgear.js"></script>
 <script>
-	const APPID  = 'nstdaworkshop';
-	const KEY    = 'Y386GFExIsbeRol';
-	const SECRET = 'XOaKPHNY3imoev4b3FTH5SyMU';
+	const APPID  = 'GROUP_APPID';
+	const KEY    = 'GROUP_KEY';
+	const SECRET = 'GROUP_SECRET';
 
 	const ALIAS = "html5";
 
@@ -72,16 +72,16 @@
 //		var row = document.getElementById("r").value;
 //    	var column = document.getElementById("c").value;
 
-		var row = 6;
-		var column = 8;
+		// e.g. 5 row 
+		var sizeofcolumn = [6,8,8,6,4];
 
     	var htmltext = "";
-    	for(var y=0;y<row;y++){
+    	for(var y=0;y<sizeofcolumn.length;y++){
     		htmltext += "<div class='row'>";
-        	for(var x=0;x<column;x++){
+        	for(var x=0;x<sizeofcolumn[y];x++){
 			
-				var k = x + y*column;
-				var id = k>=10?k:'0'+k;
+				var k = y +""+ x;
+				var id = k;
         		htmltext += "<div class='column' id='A"+id+"'>A"+id+"<br><span class=humid id='A"+id+"humid'></span>&nbsp;<br><span class=temp id='A"+id+"temp'></span>&nbsp;</div>";
 
         	}
