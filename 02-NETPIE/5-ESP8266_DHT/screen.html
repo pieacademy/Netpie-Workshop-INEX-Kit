@@ -1,0 +1,93 @@
+<script src="https://cdn.netpie.io/microgear.js"></script>
+<script>
+	const APPID  = 'nstdaworkshop';
+	const KEY    = 'Y386GFExIsbeRol';
+	const SECRET = 'XOaKPHNY3imoev4b3FTH5SyMU';
+
+	const ALIAS = "html5";
+
+	var microgear = Microgear.create({
+		key: KEY,
+		secret: SECRET,
+		alias : ALIAS
+	});
+
+	microgear.on('message',function(topic,msg) {
+		if(topic.startsWith("/"+APPID+"/dht")){
+			var idBox = topic.replace("/"+APPID+"/dht/","");
+			try{
+				var m = msg.split(",");
+				document.getElementById(idBox+"humid").innerHTML = parseFloat(m[0]).toFixed(1)+'%';
+				document.getElementById(idBox+"temp").innerHTML = parseFloat(m[1]).toFixed(1)+'°C';
+			}catch(err) {
+				console.log(err);
+			}
+		}
+	});
+
+	microgear.on('connected', function() {
+		microgear.setAlias(ALIAS);
+		microgear.subscribe("/dht/+");
+		document.getElementById("data").innerHTML = "<font color=#dddddd>Connected to netpie...</font>";
+	});
+
+	microgear.connect(APPID);
+	
+</script>
+
+<style>
+	body{
+		text-align:center;
+		font-weight: bold;
+	}
+	.column{
+		font-size:24px;
+		color: #bbbb66;
+		display: inline-block;
+		width: 150px;
+		text-align:center;
+		border: 1px solid #dddddd;
+	}
+	.row{
+		display: block;
+	}
+	.humid{
+		font-size:24px;
+		color: #22cc22;
+	}
+	.temp{
+		font-size:24px;
+		color: #ffa522;
+	}
+</style>
+
+<!--
+<div>ROW : <input type="number" id="r"> COLUMN : <input type="number" id="c"> <input type="button" value="Create" onClick="createBox()"></div>
+-->
+<div id="data">___</div>
+<div id="box"></div>
+
+<script>
+	function createBox(){
+//		var row = document.getElementById("r").value;
+//    	var column = document.getElementById("c").value;
+
+		var row = 6;
+		var column = 8;
+
+    	var htmltext = "";
+    	for(var y=0;y<row;y++){
+    		htmltext += "<div class='row'>";
+        	for(var x=0;x<column;x++){
+			
+				var k = x + y*column;
+				var id = k>=10?k:'0'+k;
+        		htmltext += "<div class='column' id='A"+id+"'>A"+id+"<br><span class=humid id='A"+id+"humid'></span>&nbsp;<br><span class=temp id='A"+id+"temp'></span>&nbsp;</div>";
+
+        	}
+        	htmltext += "</div>";
+    	}
+    	document.getElementById("box").innerHTML = htmltext;
+	}
+	createBox();
+</script>
