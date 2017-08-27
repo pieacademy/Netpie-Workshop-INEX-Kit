@@ -5,6 +5,12 @@ https://docs.google.com/document/d/1z6CvZVwrr_Xkjn6EnHwPi074Fd7RZisp7_4SoDzH9c4
 
 ## Presentations
 
+### Introduction to Internet of Things
+https://drive.google.com/file/d/0BxilWPgyXTmvNldoMm9reUJaQ3M
+
+### Introduction to Network Protocols
+https://drive.google.com/file/d/0BxilWPgyXTmvNDMtVVFZRHpqUzA
+
 ### Part 1: Development Kit
 https://docs.google.com/presentation/d/1Vagl-pFtZ1vnWT8DoVUfSGOcozx6pkGCqHgvBGRAtiw
 
